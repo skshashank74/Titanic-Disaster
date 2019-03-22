@@ -74,12 +74,6 @@ length(which(is.na(full$Title)))
 #Replace Na with Rare
 full$Title[is.na(full$Title)] <- "Rare"
 
-#nrow(full[is.na(full$Age) & full$Title == "Mr.",])
-#nrow(full[is.na(full$Age) & full$Title == "Mrs.",])
-#nrow(full[is.na(full$Age) & full$Title == "Miss.",])
-#nrow(full[is.na(full$Age) & full$Title == "Master.",])
-#nrow(full[is.na(full$Age) & full$Title == "Rare",])
-
 m <- c("Mr.","Mrs.","Miss.","Master.","Rare")
 for (i in 1:length(m)) {
   cat("NA in Age having title",m[i],nrow(full[is.na(full$Age) & full$Title == m[i],]),"\n")
@@ -91,11 +85,6 @@ for(i in 1:length(m)){
   full$Age[(is.na(full$Age) & full$Title == m[i])] <- round(mean(full$Age[full$Title == m[i]],na.rm = T),2)
 }
 
-#full$Age[(is.na(full$Age) & full$Title == "Mr.")] <- round(mean(full$Age[full$Title == "Mr."], na.rm = T),2)
-#full$Age[(is.na(full$Age) & full$Title == "Mrs.")] <- round(mean(full$Age[full$Title == "Mrs."], na.rm = T),2)
-#full$Age[(is.na(full$Age) & full$Title == "Miss.")] <- round(mean(full$Age[full$Title == "Miss."], na.rm = T),2)
-#full$Age[(is.na(full$Age) & full$Title == "Master.")] <- round(mean(full$Age[full$Title == "Master."], na.rm = T),2)
-#full$Age[(is.na(full$Age) & full$Title == "Rare")] <- round(mean(full$Age[full$Title == "Rare"], na.rm = T),2)
 
 #All missing value has been taken care of
 #Lets try to extract some fields
